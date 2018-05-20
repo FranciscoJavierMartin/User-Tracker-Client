@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-addconnection',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddconnectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+  }
+
+  addConnection(username_a: string, username_b: string) {
+    this.userService.add_connection_between_users(username_a, username_b)
+      .subscribe((data) => console.log(data));
   }
 
 }

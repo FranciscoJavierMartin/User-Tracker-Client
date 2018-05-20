@@ -22,4 +22,8 @@ export class UserService {
   public addUserToDatabase(username: string) {
     return this.http.post(`http://localhost:3000/adduser`, {username});
   }
+
+  public add_connection_between_users(username_a: string, username_b: string) {
+    return this.http.put(`http://localhost:3000/addconnection`, { username_a, username_b});
+  }
 }
