@@ -9,8 +9,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+
   public getUsersConnected(username: string) {
-    return null;
+    return this.http.get(`http://localhost:3000/userconnections/${username}`);
   }
 
   public get_stats_per_user() {

@@ -18,8 +18,17 @@ export class ListconnectionsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.username = params['username'];
-      this.users_connected = this.userService.getUsersConnected(this.username);
+      this.userService.getUsersConnected(this.username)
+      .subscribe((data: UserConnections) => {
+
+        this.users_connected = data.user_connections;
+
+      });
     });
   }
 
+}
+
+export interface UserConnections {
+  user_connections: string[];
 }
