@@ -1,3 +1,4 @@
-<p>
-  adduser works!
-</p>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Search" (keydown.enter)="addUser(userToAdd.value)" #userToAdd>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="addUser(userToAdd.value)">Add user</button>
+</form>

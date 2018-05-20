@@ -17,6 +17,9 @@ export class UserService {
   public get_stats_per_user() {
     console.log('Dentro de get');
     return this.http.get('http://localhost:3000/stats');
-    //return fetch('http://localhost:3000/stats');
+  }
+
+  public addUserToDatabase(username: string) {
+    return this.http.post(`http://localhost:3000/adduser`, {username});
   }
 }
