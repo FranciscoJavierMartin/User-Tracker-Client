@@ -1,4 +1,16 @@
-<form class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Search" (keydown.enter)="addUser(userToAdd.value)" #userToAdd>
-  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="addUser(userToAdd.value)">Add user</button>
+
+<h2 class="mb-4 text-center">Add a user</h2>
+
+<form class="form-group my-2 my-lg-0">
+  <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Username" aria-label="Search" (keydown.enter)="addUser(userToAdd.value)" #userToAdd>
+  <button class="form-control btn btn-primary " type="button" (click)="addUser(userToAdd.value)">Add user</button>
 </form>
+
+<div *ngIf="finished">
+  <div *ngIf="success" class="alert alert-success mt-3" role="alert">
+    {{message}}
+  </div>
+  <div *ngIf="!success" class="alert alert-danger mt-3" role="alert">
+    {{message}}
+  </div>
+</div>

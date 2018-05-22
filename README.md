@@ -1,27 +1,39 @@
-# ClientTrackerUser
+# User tracker client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+This is an application that consume an API to track users. The application has the following features:
 
-## Development server
+- Add users.
+- Add connections between users.
+- List users connected with a given user.
+- Show the percentage of user connected about the number of users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Tech considerations
+To make this app, I use Angular 6. This framework provide many tools to build web applications and fast development.
 
-## Code scaffolding
+Bootstrap 4 has been chosen to add style to HTML.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation (optional)
+This section is optional, due to you only need it if you want to make any change.
 
-## Build
+- Install Node.js 8+
+- Install Angular CLI.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Deploy
+To deploy this applicacion, copy the content of *dist/ClientTrackerUser* folder to a web server that support statics files. A quick way its type the following commands:
 
-## Running unit tests
+- `cd dist/ClientTrackerUser`
+- `python -m http.server`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+These instructions start a local server to serve static files on 8080 port. You want to use the server of your preference.
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The application has four views:
 
-## Further help
+- Add user: Add a user to database. You only need to provide a unique username and click to the *Add user* button.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Add connection: Add a connection between two existing users and click to *Add connection* button.
+
+- User connections: Show a list of all users connected with the given user. To use this feature, type and existing user on the navbar input.
+
+- Stats: Show a table with all users and the connections percent with other users.

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { UserStats } from '../../interfaces/userstats.interface';
 
 @Component({
   selector: 'app-stats',
@@ -8,31 +9,18 @@ import { UserService } from '../../services/user.service';
 })
 export class StatsComponent implements OnInit {
 
-  lista=[]
+  users_stats = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    console.log('Oninit');
-
-    
     this.userService.get_stats_per_user()
-      .subscribe((data: Data) => {
-        console.log('Antes', this.lista);
-        this.lista = data.users2;
-        console.log('Despues', this.lista);
+      .subscribe((data: UserStats) => {
+        this.users_stats = data.users_stats;
+      }, (error: Error) => {
+
       });
 
-    /*this.userService.get_stats_per_user()
-    .then(result => result.json())
-    .then(res => console.log(res))
-    .catch(err => {
-      console.error(err);
-    });*/
   }
 
-}
-
-export interface Data {
-  users2: any[];
 }

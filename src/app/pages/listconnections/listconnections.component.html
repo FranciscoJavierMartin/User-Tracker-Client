@@ -1,5 +1,10 @@
 <h2>Users connected with {{username}}</h2>
-<ul>
+
+<strong *ngIf="users_connected.length===0">
+  {{username}} has not connections with other users.
+</strong>
+
+<ul *ngIf="users_connected.length!==0">
   <li *ngFor="let user of users_connected">
     {{user}}
   </li>

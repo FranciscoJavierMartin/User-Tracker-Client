@@ -1,5 +1,14 @@
-<form class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="text" placeholder="Username A" aria-label="Search"  #userA>
-  <input class="form-control mr-sm-2" type="text" placeholder="Username B" aria-label="Search"  #userB>
-  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="addConnection(userA.value,userB.value)">Add connection</button>
+<h2 class="mb-4 text-center">Add a connection between users</h2>
+<form class="form-group my-2 my-lg-0 ">
+  <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Username A" aria-label="Search"  #userA>
+  <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Username B" aria-label="Search"  #userB>
+  <button class="form-control btn btn-primary my-2 my-sm-0 mb-3" type="button" (click)="addConnection(userA.value,userB.value)">Add connection</button>
 </form>
+<div *ngIf="finished">
+  <div *ngIf="success" class="alert alert-success mt-3" role="alert">
+    {{message}}
+  </div>
+  <div *ngIf="!success" class="alert alert-danger mt-3" role="alert">
+    Error on add connection between users.
+  </div>
+</div>
